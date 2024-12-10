@@ -1,4 +1,4 @@
-Penulis: [Nur Muhamamd Luthfi](https://x.com/luthfi0x)
+Penulis: [Nur Muhammad Luthfi](https://x.com/luthfi0x)
 
 # Tutorial Install Docker
 Bab ini berisi tutorial cara menginstall Docker di VPS dengan Operating Sistem Ubuntu
