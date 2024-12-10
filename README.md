@@ -1,17 +1,7 @@
-Penulis: [nama_penulis](link_twt)
+Penulis: [Nur Muhamamd Luthfi](https://x.com/luthfi0x)
 
-# Pengenalan
-Bab ini berisi pengenalan mengenai nama_project
-
-## Nama_Project
-> [!NOTE]
-> berikan_description_singkat_mengenai_project_tersebut
-
-### Investor
-taroh_img_investor_jika_ada
-
-# Tutorial XXX
-Bab ini berisi tutorial cara menjalankan XXX
+# Tutorial Install Docker
+Bab ini berisi tutorial cara menginstall Docker di VPS dengan Operating Sistem Ubuntu
 
 ## Requirement
 Syarat menjalankan XXX
@@ -19,39 +9,61 @@ Syarat menjalankan XXX
   
 | Name | Minimum |
 | ------------- | ------------- |
-| Operating System  | OS_NAME  |
-| CPU  | X Cores  |
-| RAM  | X GB  |
-| SSD  | XX GB  |
-- item_2_dan_seterusnya_jika_ada
-
-> [!TIP]
-> Kami menggunakan Digital Ocean dengan speksifikasi `XX/ X Core/ X GB RAM/ XX GB SSD`. Jika kamu membutuhkan VPS, kami memiliki link gratis credit VPS DigitalOcean sebesar $200. Cukup untuk menjalankan XXX selama XX . Daftar sekarang dengan [link utama](link_reff_do_kamu) / [link cadangan](link_reff_do_2_kamu) untuk mendapatkannya.
+| Operating System  | Ubuntu LTS versi terbaru  |
+| CPU  | 1 Cores  |
+| RAM  | 512 MB  |
+| SSD  | 10 GB  |
   
 ## Dependencies
 
-### Install X 
+### Update Package List 
 ```
-sudo apt-get install xxxx
+sudo apt update
 ```
 
-## Menjalankan XXX
+### Install Dependencies
+```
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+```
 
-### Run XXX
+### Menambahkan Official GPG Key Docker
 ```
-code blocks for commands
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 ```
+
+### Menambahkan Repository Docker
+```
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+### Update Package List (Again lol)
+```
+sudo apt update
+```
+
+### Install Docker
+```
+sudo apt install docker-ce docker-ce-cli containerd.io
+```
+
+## Menjalankan Docker
+
+### Enable Docker
+```
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+### Cek Versi Docker
+```
+sudo docker --version
+```
+
+Jika semua berjalan dengan benar, maka akan muncul versi Docker yang sudah kamu install.
 
 ## Help
-
 Join komunitas [Discord ZuperHunt](https://t.co/n7TeWVlA48) jika kamu ada pertanyaan.
 
 ## Change Logs
-
 * 0.0.1
     * Initial Release
-
-## Acknowledgments
-
-Referensi
-* [nama_referensi](link_referensi)
